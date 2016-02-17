@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Div couleur</title>
+</head>
+<body>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>
+  var couleurs = ['firebrick', 'lightsalmon', 'lightgreen', 'khaki', 'mediumspringgreen'];
+  console.log(couleurs[0]);
+
+
+  $(function() {
+    // Gestion du bouton
+    $('body').append('<button id = "rainbow"><img src="rainbow-smiling-clouds.png" id ="rainbowimg"></button>');
+    $('#rainbow').on('click', function(event){
+      console.log('Le bouton à été cliqué');
+      // En appuyant sur le bouton
+      for(var i = 0 ; i<couleurs.length ; i++){
+        console.log(couleurs[i]);
+        // Fond rouge
+        $('body').css( "background-color", couleurs[0]);
+        // Fond rose
+        $('#rainbow').on('click', function(event){
+          $('body').css( "background-color", couleurs[1]);
+          //Fond vert
+          $('#rainbow').on('click', function(event){
+            $('body').css( "background-color", couleurs[2]);
+            //Fond jaune
+            $('#rainbow').on('click', function(event){
+              $('body').css( "background-color", couleurs[3]);
+              //Fond cyan
+              $('#rainbow').on('click', function(event){
+                $('body').css( "background-color", couleurs[4]);
+              });
+            });
+          });
+        });
+      }
+    });
+  });
+  </script>
+
+  <!-- Style -->
+  <style media="screen">
+  body{
+    background-color:white;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    transition: 1s;
+  }
+
+  #rainbowimg{width:150px;}
+  #rainbow{border: none; background: none;}
+  #rainbow:hover{opacity: 0.9; transition-duration: 0.4s;}
+  #rainbow:active{opacity: .6; transition-duration: 0.4s;}
+
+
+
+  </style>
+  <!-- Style -->
+
+
+
+</body>
+</html>
+
+<!-- Créez 5 divs HTML en JS à partir d'un tableau de couleurs
+['red', 'pink', 'green', 'yellow', 'cyan'] Chaque div permet de changer
+la background de la page UNE SEULE FOIS. -->
